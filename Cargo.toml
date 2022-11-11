@@ -12,9 +12,9 @@ license = "AGPL-3.0-or-later"
 readme = "README.md"
 
 include = [
-    "**/*.rs",
-    "Cargo.toml",
-    "*.md",
+  "**/*.rs",
+  "Cargo.toml",
+  "*.md",
 ]
 
 [dependencies]
@@ -25,3 +25,13 @@ env_logger = { version = "0.9", optional = true, features = [] }
 
 [features]
 default = ["env_logger"]
+
+[profile.release]
+debug-assertions = false
+overflow-checks = false
+opt-level = 3
+panic = "abort"
+incremental = true
+codegen-units = 1
+strip = true
+lto = true

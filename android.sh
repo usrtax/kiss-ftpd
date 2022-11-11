@@ -39,3 +39,5 @@ echo 'STRIP = '$STRIP
 RUST_BACKTRACE=1 \
   RUSTFLAGS="-C target-feature=+crt-static" \
   cargo +nightly build --release --target aarch64-linux-android
+
+ls -alh ./target/aarch64-linux-android/release
