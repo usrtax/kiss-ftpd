@@ -57,7 +57,7 @@ pub async fn main() {
 
     println!("kiss-ftp listening on {} serving directory: {:?}", ftp_host, first_arg);
 
-    let server = libunftp::Server::with_fs(first_arg).greeting("Welcome to kiss-ftpd");
+    let server = libunftp::Server::with_fs(first_arg).greeting("welcome");
 
     server.listen(ftp_host).await.expect("could not bind to address");
 }
