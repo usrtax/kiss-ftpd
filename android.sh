@@ -48,4 +48,4 @@ echo 'STRIP = '$STRIP
 RUST_BACKTRACE=1 \
   cargo +nightly build --release --target $RUST_TARGET
 
-ls -alh ./target/aarch64-linux-android/release
+ls -alh ./target/$RUST_TARGET/release
