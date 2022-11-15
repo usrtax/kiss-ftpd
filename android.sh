@@ -45,6 +45,7 @@ echo 'STRIP = '$STRIP
 
 RUSTFLAGS="-C target-feature=+crt-static" \
   RUST_BACKTRACE=1 \
-  cargo +nightly build --release --target $RUST_TARGET
+  cargo +nightly build \
+  --release --target $RUST_TARGET
 
 ls -alh ./target/$RUST_TARGET/release
