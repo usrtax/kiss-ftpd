@@ -10,13 +10,13 @@ cd $DIR
 export API=30
 export NDK_VERSION=22.1.7171670
 
-export TARGET=armv7a-linux-androideabi
-ABI=arm-linux-androideabi
-RUST_TARGET=armv7-linux-androideabi
+# export TARGET=armv7a-linux-androideabi
+# ABI=arm-linux-androideabi
+# RUST_TARGET=armv7-linux-androideabi
 
-# export TARGET=aarch64-linux-android
-# ABI=$TARGET
-# RUST_TARGET=$TARGET
+export TARGET=aarch64-linux-android
+ABI=$TARGET
+RUST_TARGET=$TARGET
 
 export os=$(uname -s | awk '{ print tolower($0) }')
 export NDK=$HOME/Library/Android/sdk/ndk/$NDK_VERSION
@@ -43,9 +43,8 @@ echo 'LD = '$LD
 echo 'RANLIB = '$RANLIB
 echo 'STRIP = '$STRIP
 
-# RUSTFLAGS="-C target-feature=+crt-static" \
-
-RUST_BACKTRACE=1 \
+RUSTFLAGS="-C target-feature=+crt-static" \
+  RUST_BACKTRACE=1 \
   cargo +nightly build --release --target $RUST_TARGET
 
 ls -alh ./target/$RUST_TARGET/release
